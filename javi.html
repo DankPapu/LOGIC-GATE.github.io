@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Gate Drawer</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        canvas {
+            border: 1px solid #000;
+        }
+
+        .input-label {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Logic Gate Drawer</h1>
+
+<label class="input-label">Ingresa la expresión lógica (por ejemplo, A'BCD):</label>
+<input type="text" id="expressionInput">
+
+<button onclick="drawGate()">Dibujar Puerta Lógica</button>
+<button onclick="resetCanvas()">Reset</button>
+
+<canvas id="logicCanvas" width="400" height="300"></canvas>
+
+<script>
+    function drawGate() {
+        var expression = document.getElementById('expressionInput').value.toUpperCase();
+        var canvas = document.getElementById('logicCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // Limpiar el lienzo
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Dibujar la puerta lógica correspondiente
+        drawLogicExpression(ctx, expression);
+    }
+
+    function resetCanvas() {
+        var canvas = document.getElementById('logicCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // Limpiar el lienzo
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Limpiar la entrada de expresión
+        document.getElementById('expressionInput').value = '';
+
+        alert('Lienzo reiniciado');
+    }
+
+    function drawLogicExpression(ctx, expression) {
+        // Implementa la lógica de dibujo aquí según la expresión lógica proporcionada
+        // Puedes usar ctx.fillText, ctx.beginPath, ctx.moveTo, ctx.lineTo, etc. para dibujar en el lienzo
+        // Consulta la documentación de Canvas API para obtener más información: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+    }
+</script>
+
+</body>
+</html>
